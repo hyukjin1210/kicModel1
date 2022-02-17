@@ -26,12 +26,16 @@ location.href="<%=request.getContextPath()%>/view/member/loginForm.jsp"
 String tel = request.getParameter("tel");
 String email = request.getParameter("email");
 String pass = request.getParameter("pass");
+String picture = request.getParameter("picture");
 MemberDao md = new MemberDao();
 Member mem = md.selectOne(login);
 
 // member에 email, tel을 저장
 mem.setEmail(email);
 mem.setTel(tel);
+mem.setPicture(picture);
+
+//System.out.println(mem); //수정 된 이미지 이름 저장.
 
 
 if (mem.getPass().equals(pass)) {
